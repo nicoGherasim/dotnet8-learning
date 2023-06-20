@@ -86,12 +86,18 @@ string inputtedAge = Console.ReadLine();
 int age = Convert.ToInt32(inputtedAge);
 Console.WriteLine("age: " + age);
 
+Console.WriteLine("Give me your age:");
+age = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("age: " + age);
+
 // operatori
 // aritmetici 
 // + - * / %
 int s = 3 + 5;
 int x = 10 % 3; // modulo - a % b -> restul impartirii lui a la b
 Console.WriteLine(x);
+Console.WriteLine("impartire");
+Console.WriteLine(10 / 3);
 Console.WriteLine(10.0 / 3.0);
 
 // ++ --
@@ -124,3 +130,287 @@ Console.WriteLine(5 <= 6);
 Console.WriteLine(6 == 6 && 7 == 9);
 Console.WriteLine(6 == 6 || 7 == 9);
 Console.WriteLine(!(6 == 6));
+
+// 1. Definiti cate o varibila pentru fiecare din valorile urmatoare
+// folosind cel mai potrivit tip de date:
+// 1, 123, x, csharp, 123.5, true, 12345678901234567890
+
+byte one = 1;
+byte two = 123;
+char three = 'x';
+string four = "csharp";
+double five = 123.5;
+bool six = true;
+ulong seven = 12345678901234567890;
+
+Console.WriteLine("------------------------IF----------------------------------");
+//if (conditie)
+//{
+//	// execute this code
+//}
+// else
+//{
+// //execute this code
+//}
+
+int varsta = 80;
+if (varsta < 65)
+{
+    Console.WriteLine("get to work!");
+}
+else
+{
+    Console.WriteLine("happy retirement!");
+}
+
+varsta = 80;
+int varstaCopil = 25;
+if (varsta < 65 && varstaCopil > 20)
+{
+    Console.WriteLine("get to work!");
+}
+else
+{
+    Console.WriteLine("happy retirement!");
+}
+
+varsta = 97;
+if (varsta < 90)
+{
+    Console.WriteLine("lower than 90");
+    //if 
+}
+else if (varsta < 95)
+{
+    Console.WriteLine("lower than 95");
+}
+else
+{
+    Console.WriteLine("greater or equal to 95");
+}
+
+// 2. Cititi doua numere de la utilizator si afisati suma lor daca primul nr e mai mic sau egal decat al doilea
+// si diferenta lor daca primul numar e mai mare decat al doilea.
+// Asigurati-va ca utilizatorul are o experienta placuta.'
+
+Console.WriteLine("first number:");
+int number1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("second number:");
+int number2 = Convert.ToInt32(Console.ReadLine());
+if (number1 > number2)
+{
+    Console.WriteLine("first number is greater than the second number");
+    Console.WriteLine(number1 - number2);
+}
+else
+{
+    Console.WriteLine("first number is lover than the second number");
+    Console.WriteLine(number1 + number2);
+}
+
+// 3. Cititi doua nume de la utilizator. Afisati "Same" daca cele doua nume sunt identice si "Not the same" in caz contrar.
+// Asigurati-va ca utilizatorul are o experienta placuta.
+
+Console.WriteLine("first name:");
+string firstName = Console.ReadLine();
+Console.WriteLine("second name:");
+string secondName = Console.ReadLine();
+if (firstName == secondName)
+{
+    Console.WriteLine("Same");
+}
+else
+{
+    Console.WriteLine("Not the same");
+}
+
+// 4. Cititi doua cuvinte de la utilizator. Afisati "alphabetically ordered" daca cele doua sunt date in ordine alfabetica
+// si "not alphabetically ordered" daca cele doua cuvinte nu sunt date in ordine alfabetica.
+// Asigurati-va ca utilizatorul are o experienta placuta.
+
+Console.WriteLine("first word:");
+string firstWord = Console.ReadLine();
+Console.WriteLine("second word:");
+string secondWord = Console.ReadLine();
+if (string.Compare(firstWord, secondWord) <= 0)
+{
+    Console.WriteLine("alphabetically ordered");
+}
+else
+{
+    Console.WriteLine("not alphabetically ordered");
+}
+
+Console.WriteLine("------------------------SWITCH----------------------------------");
+//switch (conditie)
+//{
+//    case x:
+//        {
+//            //execute code
+//            //break;
+//        }
+//    case y:
+//        {
+//            //execute code
+//            //break;
+//        }
+//    default:
+//        {
+//            //execute code
+//            //break;
+//        }
+//}
+
+int day = 3;
+
+if(day == 1)
+{
+    Console.WriteLine("mon");
+} 
+else if (day == 2)
+{
+    Console.WriteLine("tue");
+} 
+else if (day == 3)
+{
+    Console.WriteLine("wed");
+}
+else if (day == 4)
+{
+    Console.WriteLine("thu");
+}
+else if (day == 5)
+{
+    Console.WriteLine("fri");
+}
+else if (day == 6)
+{
+    Console.WriteLine("sat");
+}
+else if (day == 7)
+{
+    Console.WriteLine("sun");
+}
+else
+{
+    Console.WriteLine("unknown!");
+}
+
+// the IF above and the SWITCH below are equivalent - they do the same thing
+switch (day)
+{
+    case 1:
+        {
+            Console.WriteLine("mon");
+            break;
+        }
+    case 2:
+        {
+            Console.WriteLine("tue");
+            break;
+        }
+    case 3:
+        {
+            Console.WriteLine("wed");
+            break;
+        }
+    case 4:
+        {
+            Console.WriteLine("thu");
+            break;
+        }
+    case 5:
+        {
+            Console.WriteLine("fri");
+            break;
+        }
+    case 6:
+        {
+            Console.WriteLine("sat");
+            break;
+        }
+    case 7:
+        {
+            Console.WriteLine("sun");
+            break;
+        }
+    default:
+        {
+            Console.WriteLine("unknown!");
+            break;
+        }
+}
+
+// 5. Cititi un numar de la utilizator.
+// Folositi switch ca sa afisati lunile anului sau "unknown" in functie de numarul citit.
+
+Console.WriteLine("number:");
+int month = Convert.ToInt32(Console.ReadLine());
+switch (month)
+{
+    case 1:
+        {
+            Console.WriteLine("jan");
+            break;
+        }
+    case 2:
+        {
+            Console.WriteLine("feb");
+            break;
+        }
+    case 3:
+        {
+            Console.WriteLine("mar");
+            break;
+        }
+    case 4:
+        {
+            Console.WriteLine("apr");
+            break;
+        }
+    case 5:
+        {
+            Console.WriteLine("may");
+            break;
+        }
+    case 6:
+        {
+            Console.WriteLine("jun");
+            break;
+        }
+    case 7:
+        {
+            Console.WriteLine("jul");
+            break;
+        }
+    case 8:
+        {
+            Console.WriteLine("aug");
+            break;
+        }
+    case 9:
+        {
+            Console.WriteLine("sep");
+            break;
+        }
+    case 10:
+        {
+            Console.WriteLine("oct");
+            break;
+        }
+    case 11:
+        {
+            Console.WriteLine("nov");
+            break;
+        }
+    case 12:
+        {
+            Console.WriteLine("dec");
+            break;
+        }
+    default:
+        {
+            Console.WriteLine("unknown!");
+            break;
+        }
+}
