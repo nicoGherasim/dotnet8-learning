@@ -1,8 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.Xml;
-
-Console.WriteLine("Hello, World!");
+﻿Console.WriteLine("Hello, World!");
 Console.WriteLine();
 Console.WriteLine("un alt text");
 
@@ -145,7 +141,7 @@ double five = 123.5;
 bool six = true;
 ulong seven = 12345678901234567890;
 
-Console.WriteLine("------------------------IF----------------------------------");
+Console.WriteLine("------------------------IF------------------------");
 //if (conditie)
 //{
 //	// execute this code
@@ -244,7 +240,7 @@ else
     Console.WriteLine("not alphabetically ordered");
 }
 
-Console.WriteLine("------------------------SWITCH----------------------------------");
+Console.WriteLine("------------------------SWITCH------------------------");
 //switch (conditie)
 //{
 //    case x:
@@ -418,13 +414,13 @@ switch (month)
         }
 }
 
-Console.WriteLine("--------------------------------------------ARRAY-------------------");
+Console.WriteLine("------------------------ARRAY------------------------");
 int[] numbers = new int[5] { 5, 2, 6, 8, 1 }; 
 string[] words = new string[5] { "5", "2, 6, 8, 1", "ana", "pisica", "condition" };
 
 int[] numbers1 = new int[6];
 numbers1[0] = 25;
-Console.WriteLine(numbers1);
+Console.WriteLine(numbers1[0]);
 
 int sumaArray = numbers[0] + numbers[3] + numbers[2];
 Console.WriteLine(sumaArray);
@@ -469,7 +465,7 @@ int suma2 = sum + prod;
 Console.WriteLine("sum=" + suma2);
 
 
-Console.WriteLine("--------------------------------------------LIST-------------------");
+Console.WriteLine("------------------------LIST------------------------");
 List<int> numere = new List<int> { 3, 5, 2, 13, 7, 10 };
 numere[0] = 456;
 numere.Add(123);
@@ -502,7 +498,7 @@ Console.WriteLine(l5[0] + ", " + l5[1] + ", " + l5[2]);
 //the line below is equivalent to the line above - it does the same thing using string interpolation (that $ and {})
 Console.WriteLine($"{l5[0]}, {l5[1]}, {l5[2]}");
 
-Console.WriteLine("--------------------------------------------QUEUE-------------------");
+Console.WriteLine("------------------------QUEUE------------------------");
 Queue<int> coada = new Queue<int>();
 coada.Enqueue(12);
 coada.Enqueue(45);
@@ -525,7 +521,7 @@ q1.Enqueue(567);
 q1.Enqueue(34);
 Console.WriteLine(q1.ElementAt(1));
 
-Console.WriteLine("--------------------------------------------STACK------------------");
+Console.WriteLine("------------------------STACK------------------------");
 Stack<int> stiva = new Stack<int>(5);stiva.Push(65);stiva.Push(12);stiva.Push(89);Console.WriteLine(stiva.Peek());Console.WriteLine(stiva.Pop());Console.WriteLine(stiva.Peek());Console.WriteLine(stiva.Count);
 //1
 //Declare a stack that will have 5 integer elements (12, 14, 34, 567, 34).
@@ -540,7 +536,7 @@ s1.Push(567);
 s1.Push(34);
 Console.WriteLine(s1.ElementAt(1));
 
-Console.WriteLine("--------------------------------------------DICTIONARY------------------");
+Console.WriteLine("------------------------DICTIONARY------------------------");
 
 List<int> l = new List<int> { 3, 5, 2, 13, 7, 10 };
 Dictionary<int, string> elements = new Dictionary<int, string>{ { 123, "ana" }, { 234, "maria" }, { 345, "ioana" } };
@@ -593,3 +589,249 @@ Dictionary<int, List<string>> dict1 = new Dictionary<int, List<string>>
             };
 Console.WriteLine(dict1[10][0]);
 Console.WriteLine(dict1[8][1]);
+
+
+Console.WriteLine("------------------------FOR------------------------");
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine(i);
+}
+
+Console.WriteLine();
+int j = 1;
+for(; j <= 5; j++)
+{
+    Console.WriteLine(j);
+}
+
+Console.WriteLine();
+for (int k = 1; ; k++)
+{
+    if(k > 5)
+    {
+        break;
+    }
+    Console.WriteLine(k);
+}
+
+Console.WriteLine();
+for (int q = 1; q <= 5;)
+{
+    Console.WriteLine(q);
+    q++;
+}
+
+Console.WriteLine();
+int m = 1;
+for(; ; )
+{
+    if (m > 5)
+    {
+        break;
+    }
+    Console.WriteLine(m);
+    m++;
+}
+
+Console.WriteLine();
+List<int> numbersList = new List<int>();
+//instead of doing this a lot of times:
+//numbers.Add(123);
+//numbers.Add(124);
+//we can do this:
+for (int i = 123; i <= 456; i++)
+{
+    numbersList.Add(i);
+}
+
+for (int i = 0; i < numbersList.Count; i++)
+{
+    Console.WriteLine(numbersList[i]);
+}
+
+//1
+//Print all even numbers from 1 to 15
+Console.WriteLine();
+for (int i = 1; i <= 15; i++)
+{
+    if (i % 2 == 0)
+    {
+        Console.WriteLine(i);
+    }
+}
+//the above for is equivalent with the one below
+Console.WriteLine();
+for (int i = 2; i <= 14; i += 2) // -> i = i + 2
+{
+    Console.WriteLine(i);
+}
+
+//2
+//Print all even numbers from 15 to 1
+Console.WriteLine();
+for (int i = 15; i >= 1; i--)
+{
+    if (i % 2 == 0)
+    {
+        Console.WriteLine(i);
+    }
+}
+//the above for is equivalent with the one below
+Console.WriteLine();
+for (int i = 14; i >= 2; i -= 2) // -> i = i - 2
+{
+    Console.WriteLine(i);
+}
+
+//3
+//Create a list of numbers that contains all the numbers that divide by 7 starting -100 to 100.
+//Display the elements of the list.
+Console.WriteLine();
+List<int> list2 = new List<int>();
+for (int i = -100; i <= 100; i++)
+{
+    if (i % 7 == 0)
+    {
+        list2.Add(i);
+        Console.WriteLine(i);
+    }
+}
+
+Console.WriteLine("------------------------FOREACH------------------------");
+int[] arrayName = new int[] { 0, 1, 1, 2, 3, 5, 8, 13 };
+foreach (int element in arrayName)
+{
+    Console.WriteLine(element);
+}
+
+Console.WriteLine();
+int[] arrayName1 = new int[] { 23, 45, 657, 12, 129 };
+foreach (int element in arrayName1)
+{
+    Console.WriteLine(element * element);
+}
+
+Console.WriteLine();
+List<string> names = new List<string> { "ana", "maria", "ioan" };
+foreach (string name in names)
+{
+    Console.WriteLine(name);
+}
+
+// 1
+//Read 5 numbers from the user using a for loop and store them in a collection.
+//Display the elements of the collection multiplied by 12.75 using a foreach loop.
+Console.WriteLine();
+List<int> list = new List<int>();
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine("Number: ");
+    int inputtedNumber = int.Parse(Console.ReadLine());
+    list.Add(inputtedNumber);
+}
+double numberToMultiplyWith = 12.75;
+Console.WriteLine($"Each element multiplied by {numberToMultiplyWith}");
+foreach (int element in list)
+{
+    Console.WriteLine(element * numberToMultiplyWith);
+}
+
+Console.WriteLine("------------------------WHILE------------------------");
+int n = 1;
+while (n < 6)
+{
+    Console.WriteLine("Current value of n is " + n);
+    //Console.WriteLine($"Current value of n is {n}");
+    //Console.WriteLine("Current value of n is {0}", n);
+    n++;
+}
+
+Console.WriteLine();
+int o = 789;
+while (o >= 678)
+{
+    Console.WriteLine(o);
+    o -= 34;
+}
+
+//1 
+//Create a list of numbers that contains all the numbers that divide by 7 starting -100 to 100.
+//Display the elements of the list. Use while loop.
+Console.WriteLine();
+int n2 = -100;
+List<int> l10 = new List<int>();
+while (n2 <= 100) // n < 101
+{
+    if (n2 % 7 == 0)
+    {
+        l10.Add(n2);
+        Console.WriteLine(n2);
+    }
+    n2++;
+}
+// the while above is equivalent with the for below
+Console.WriteLine();
+List<int> list3 = new List<int>();
+for (int i = -100; i <= 100; i++)
+{
+    if (i % 7 == 0)
+    {
+        list3.Add(i);
+        Console.WriteLine(i);
+    }
+}
+
+Console.WriteLine("------------------------DO WHILE------------------------");
+x = 0;
+do
+{
+    Console.WriteLine(x);
+    x++;
+} while (x < 5);
+
+Console.WriteLine();
+int y = 1234567890;
+do
+{
+    Console.WriteLine(y);
+    y--;
+    Console.WriteLine(y);
+} while (y < 5);
+
+//1
+//Print all the numbers between 56 and 987 that divide by 24. Use a do while loop.
+Console.WriteLine();
+
+int n7 = 56;
+do
+{
+    if (n7 % 24 == 0)
+    {
+        Console.WriteLine(n7);
+    }
+    n7++;
+} while (n7 <= 987);
+
+Console.WriteLine("------------------------CONTINUE------------------------");
+for (int i = 1; i <= 12; i++)
+{
+    Console.WriteLine("before continue");
+    if (i == 2 || i == 5 || i == 7)
+    {
+        continue;
+    }
+    Console.WriteLine("after continue");
+    Console.WriteLine(i);
+}
+
+Console.WriteLine("------------------------BREAK------------------------");
+for (int i = 1; i <= 100; i++)
+{
+    Console.WriteLine("before break");
+    if (i == 5)
+    {
+        break;
+    }
+    Console.WriteLine("after break");
+    Console.WriteLine(i);
+}
