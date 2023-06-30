@@ -598,10 +598,10 @@ for (int i = 1; i <= 5; i++)
 }
 
 Console.WriteLine();
-int j = 1;
-for(; j <= 5; j++)
+int j1 = 1;
+for(; j1 <= 5; j1++)
 {
-    Console.WriteLine(j);
+    Console.WriteLine(j1);
 }
 
 Console.WriteLine();
@@ -834,4 +834,258 @@ for (int i = 1; i <= 100; i++)
     }
     Console.WriteLine("after break");
     Console.WriteLine(i);
+}
+
+Console.WriteLine("------------------------DEBUG------------------------");
+// debug - means removing bugs from your code
+
+// bugs - refers to an error, fault, or flaw in any computer program or a hardware system
+
+// most bugs occur due to errors and mistakes made by developers when constructing the source code
+
+// debugging - run your code step by step in order to remove bugs
+
+// debugger - means that there is one tool actively monitors everything that’s happening as the program runs.
+// It also allows you to pause the app at any point to examine its state and then step through your code
+// line by line to watch every detail as it happens.
+
+// breakpoint 
+// F9
+// added on the line of code you want to examinate in detail
+// indicates where Visual Studio should suspend your running code so you can take a closer look
+
+// F11
+// step into
+// execute the next line of code and if the next line is a function call,
+// Step Into will stop at the first line of the function
+
+// F10
+// step over
+// execute the next line of code and if the next line is a function call,
+// Step Over will execute the function, and will stop at the next line of code after the function
+
+// F11 + shift
+// step out
+// this will return to the line where the current function was called
+
+// F5 continue
+// will continue executing the code, until the next breakpoint
+
+Console.WriteLine();
+Step1();
+
+void Step1()
+{
+    Console.WriteLine("go to step2");
+    Step2();
+}
+void Step2()
+{
+    Console.WriteLine("go to step3");
+    Step3();
+}
+
+void Step3()
+{
+    Console.WriteLine("stop");
+}
+
+// the functions/methods above will run as the code below
+Console.WriteLine("go to step2");
+Console.WriteLine("go to step3");
+Console.WriteLine("stop");
+
+Console.WriteLine("------------------------ALGORITHMS------------------------");
+// un set finit de pasi
+// care se executa cu scopul de a rezolva o problema sau de indeplini o sarcina
+// simpli sau complecsi in functie de problema pe care o rezolva
+// input -> pasi (procesare/instructiuni) -> output
+
+//Every time you bake or cook something, you follow a set of steps to put the ingredients together and produce a final product.
+//If you were asked to write down instructions to make your recipe,you could create your own algorithm.
+//You would only need to specify : 
+//Inputs: Ingredients and quantities
+//Process: recipe or method 
+//Output: What the finished meal will be like 
+
+// MATRIX
+// 2 6
+// 9 3
+// 7 5
+
+int[,] matrice = new int[3, 3]
+{
+                {2, 6, 3},
+                {9, 3, 1},
+                {7, 5, 8}
+};
+
+Console.WriteLine();
+Console.WriteLine(matrice[0,0]);
+Console.WriteLine(matrice[0,1]);
+Console.WriteLine();
+
+int numberOfRows = matrice.GetLength(0);
+int numberOfColumns = matrice.GetLength(1);
+
+for(int i = 0; i < numberOfRows; i++)
+{
+    for(int j = 0;  j < numberOfColumns; j++)
+    {
+        Console.Write(matrice[i,j] + " ");
+    }
+    Console.WriteLine();
+}
+
+// 1
+// Write an algorithm that iterates two different lists
+// (declared in advance with different number of elements)
+// and print the sum of each element of the first list with each element of the second list.
+// Use only foreach loops.
+
+// l1: 4, 8, 5, 3
+// l2: 40, 80, 50, 30, 100
+// result: 44, 84, 54, 34, 104, 48, 88, 58, 38, 108, 45, 85, 55, 35, 105, 43, 83, 53, 33, 103 
+
+Console.WriteLine();
+List<int> l1 = new List<int> { 4, 8, 5, 3 };
+List<int> l2 = new List<int> { 40, 80, 50, 30, 100, 70, 50 };
+
+foreach(int i in l1)
+{
+    foreach (int j in l2)
+    {
+        Console.Write((i + j) + ", ");
+    }
+}
+
+// 2 MIN MAX
+// Print the minimum value and the maximum value of an array.
+// Do not use array.Min() or array.Max().
+
+Console.WriteLine();
+int[] myArray1 = new int[] { -1, 2, 3, 8, -12, 56, 128, 7 };
+
+Console.WriteLine(myArray1.Min());
+Console.WriteLine(myArray1.Max());
+
+int min = myArray1[0];
+int max = myArray1[0];
+
+foreach(int i in myArray1)
+{
+    if(i < min)
+    {
+        min = i;
+    }
+    if(i > max)
+    {
+        max = i;
+    }
+}
+Console.WriteLine("min: " + min + ", max: " + max);
+
+// 3 PRIME NUMBER
+// Write an algorithm to check if a number is prime or not (it only divides by 1 and itself).
+// Print "the number is prime" is so or "the number is not prime" otherwise.
+// Prime numbers: 13, 23
+// Not prime numbers: 12, 24, 15
+
+Console.WriteLine();
+int numberToBeChecked = 12;
+bool isPrime = true;
+
+for (int i = 2; i < numberToBeChecked; i++)
+{
+    if (numberToBeChecked % i == 0)
+    {
+        isPrime = false;
+        break;
+    }
+}
+
+if (isPrime)
+{
+    Console.WriteLine("the number is prime");
+}
+else
+{
+    Console.WriteLine("the number is not prime");
+}
+
+// 4 SWAP VARIABLES
+// a = 12 b = 15
+// a = 15 b = 13
+
+int a = 12;
+int b = 15;
+int temp;
+
+Console.WriteLine(a + " " + b);
+temp = b;
+Console.WriteLine(a + " " + b);
+b = a;
+Console.WriteLine(a + " " + b);
+a = temp;
+Console.WriteLine(a + " " + b);
+
+// 5 PALINDROME
+// Write an algorithm to check if a number is a palindrome or not (it is the same read from both ends).
+// Print "the number is palindrome" if so or "the number is not palindrome" otherwise.
+// 2002, 1991, 121, 909, 22
+// not palindrome 1932 -> 2391
+
+Console.WriteLine();
+int numberToCheck = 2002;
+int reverse = 0;
+int rest, temporary = numberToCheck;
+
+// 1932 
+// 0
+// 0* 10 + 2 -> 193
+// 2 * 10 + 3 -> 19
+// 23 * 10 + 9 -> 1
+// 239 * 10 + 1 -> 0
+
+while(temporary > 0)
+{
+    rest = temporary % 10;
+    temporary = temporary / 10;
+    reverse = (reverse * 10) + rest;
+}
+
+if(nr == reverse)
+{
+    Console.WriteLine("the number is palindrome");
+}
+else
+{
+    Console.WriteLine("the number is not palindrome");
+}
+
+// 6 SEARCH
+// Given an unsorted array which might have a number in the majority
+// (a number appears at least 50 % in the array),
+// find and print the first majority number if it exists.
+
+Console.WriteLine();
+myArray1 = new int[] { 72, 23, 17, 17, 17, 23, 23, 23, 23, 23 };
+
+for (int i = 0; i < myArray1.Length; i++)
+{
+    int count = 1;
+
+    for (int j = i + 1; j < myArray1.Length; j++)
+    {
+        if (myArray1[i] == myArray1[j])
+        {
+            count++;
+        }
+    }
+
+    if (count >= myArray1.Length / 2)
+    {
+        Console.WriteLine("number = " + myArray1[i] + " count = " + count);
+        break;
+    }
 }
