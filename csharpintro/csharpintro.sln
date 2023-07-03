@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C#IntroHomework", "C#IntroH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IfAndSwitchHomework", "IfAndSwitchHomework\IfAndSwitchHomework.csproj", "{F098F92A-9504-41C2-9CE0-CCCC6EEF3F03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresHomeworks", "DataStructuresHomeworks\DataStructuresHomeworks.csproj", "{38857453-051D-4914-8AA8-2FE06EECB9C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresHomework", "DataStructuresHomeworks\DataStructuresHomework.csproj", "{38857453-051D-4914-8AA8-2FE06EECB9C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
