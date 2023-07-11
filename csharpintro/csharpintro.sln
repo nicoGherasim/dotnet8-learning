@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "csharpintro", "csharpintro\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C#IntroHomework", "C#IntroHomework\C#IntroHomework.csproj", "{09641702-EDFD-4C38-AB50-37E78347ECF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IfAndSwitchHomework", "IfAndSwitchHomework\IfAndSwitchHomework.csproj", "{F098F92A-9504-41C2-9CE0-CCCC6EEF3F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfAndSwitchHomework", "IfAndSwitchHomework\IfAndSwitchHomework.csproj", "{F098F92A-9504-41C2-9CE0-CCCC6EEF3F03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresHomework", "DataStructuresHomeworks\DataStructuresHomework.csproj", "{38857453-051D-4914-8AA8-2FE06EECB9C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructuresHomework", "DataStructuresHomeworks\DataStructuresHomework.csproj", "{38857453-051D-4914-8AA8-2FE06EECB9C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoopsHomework", "LoopsHomework\LoopsHomework.csproj", "{517C85F5-50F5-4927-A9AA-A11F4BCE96AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{38857453-051D-4914-8AA8-2FE06EECB9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38857453-051D-4914-8AA8-2FE06EECB9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38857453-051D-4914-8AA8-2FE06EECB9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{517C85F5-50F5-4927-A9AA-A11F4BCE96AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{517C85F5-50F5-4927-A9AA-A11F4BCE96AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{517C85F5-50F5-4927-A9AA-A11F4BCE96AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{517C85F5-50F5-4927-A9AA-A11F4BCE96AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
