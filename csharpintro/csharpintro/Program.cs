@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using csharpintro;
+
+Console.WriteLine("Hello, World!");
 Console.WriteLine();
 Console.WriteLine("un alt text");
 
@@ -53,7 +55,7 @@ int firstNumber = 123;
 long secondNumber = firstNumber;
 
 int thirdNumber = 765;
-byte fourthNumber = (byte) thirdNumber;
+byte fourthNumber = (byte)thirdNumber;
 Console.WriteLine(fourthNumber);
 
 // var 
@@ -262,14 +264,14 @@ Console.WriteLine("------------------------SWITCH------------------------");
 
 int day = 3;
 
-if(day == 1)
+if (day == 1)
 {
     Console.WriteLine("mon");
-} 
+}
 else if (day == 2)
 {
     Console.WriteLine("tue");
-} 
+}
 else if (day == 3)
 {
     Console.WriteLine("wed");
@@ -415,7 +417,7 @@ switch (month)
 }
 
 Console.WriteLine("------------------------ARRAY------------------------");
-int[] numbers = new int[5] { 5, 2, 6, 8, 1 }; 
+int[] numbers = new int[5] { 5, 2, 6, 8, 1 };
 string[] words = new string[5] { "5", "2, 6, 8, 1", "ana", "pisica", "condition" };
 
 int[] numbers1 = new int[6];
@@ -539,7 +541,7 @@ Console.WriteLine(s1.ElementAt(1));
 Console.WriteLine("------------------------DICTIONARY------------------------");
 
 List<int> l = new List<int> { 3, 5, 2, 13, 7, 10 };
-Dictionary<int, string> elements = new Dictionary<int, string>{ { 123, "ana" }, { 234, "maria" }, { 345, "ioana" } };
+Dictionary<int, string> elements = new Dictionary<int, string> { { 123, "ana" }, { 234, "maria" }, { 345, "ioana" } };
 Console.WriteLine(elements[123]);
 
 Dictionary<string, string> d = new Dictionary<string, string>();
@@ -599,7 +601,7 @@ for (int i = 1; i <= 5; i++)
 
 Console.WriteLine();
 int j1 = 1;
-for(; j1 <= 5; j1++)
+for (; j1 <= 5; j1++)
 {
     Console.WriteLine(j1);
 }
@@ -607,7 +609,7 @@ for(; j1 <= 5; j1++)
 Console.WriteLine();
 for (int k = 1; ; k++)
 {
-    if(k > 5)
+    if (k > 5)
     {
         break;
     }
@@ -623,7 +625,7 @@ for (int q = 1; q <= 5;)
 
 Console.WriteLine();
 int m = 1;
-for(; ; )
+for (; ; )
 {
     if (m > 5)
     {
@@ -921,18 +923,18 @@ int[,] matrice = new int[3, 3]
 };
 
 Console.WriteLine();
-Console.WriteLine(matrice[0,0]);
-Console.WriteLine(matrice[0,1]);
+Console.WriteLine(matrice[0, 0]);
+Console.WriteLine(matrice[0, 1]);
 Console.WriteLine();
 
 int numberOfRows = matrice.GetLength(0);
 int numberOfColumns = matrice.GetLength(1);
 
-for(int i = 0; i < numberOfRows; i++)
+for (int i = 0; i < numberOfRows; i++)
 {
-    for(int j = 0;  j < numberOfColumns; j++)
+    for (int j = 0; j < numberOfColumns; j++)
     {
-        Console.Write(matrice[i,j] + " ");
+        Console.Write(matrice[i, j] + " ");
     }
     Console.WriteLine();
 }
@@ -951,7 +953,7 @@ Console.WriteLine();
 List<int> l1 = new List<int> { 4, 8, 5, 3 };
 List<int> l2 = new List<int> { 40, 80, 50, 30, 100, 70, 50 };
 
-foreach(int i in l1)
+foreach (int i in l1)
 {
     foreach (int j in l2)
     {
@@ -972,13 +974,13 @@ Console.WriteLine(myArray1.Max());
 int min = myArray1[0];
 int max = myArray1[0];
 
-foreach(int i in myArray1)
+foreach (int i in myArray1)
 {
-    if(i < min)
+    if (i < min)
     {
         min = i;
     }
-    if(i > max)
+    if (i > max)
     {
         max = i;
     }
@@ -1047,14 +1049,14 @@ int rest, temporary = numberToCheck;
 // 23 * 10 + 9 -> 1
 // 239 * 10 + 1 -> 0
 
-while(temporary > 0)
+while (temporary > 0)
 {
     rest = temporary % 10;
     temporary = temporary / 10;
     reverse = (reverse * 10) + rest;
 }
 
-if(nr == reverse)
+if (nr == reverse)
 {
     Console.WriteLine("the number is palindrome");
 }
@@ -1089,3 +1091,12 @@ for (int i = 0; i < myArray1.Length; i++)
         break;
     }
 }
+
+MemoryManagement memoryManagement = new MemoryManagement();
+memoryManagement.Go();
+
+Structures structures = new Structures();
+structures.Go();
+
+Keywords keywords = new Keywords();
+keywords.Go();
