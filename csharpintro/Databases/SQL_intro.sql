@@ -130,6 +130,10 @@ INSERT INTO Addresses
 VALUES ('Eroilor', 34, 'Brasov');
 INSERT INTO Addresses
 VALUES ('Unirii', 53, 'Bucuresti');
+INSERT INTO Addresses
+VALUES ('Independentei', 23, 'Brasov');
+INSERT INTO Addresses
+VALUES ('Eroilor', 35, 'Brasov');
 
 SELECT *
 FROM Addresses;
@@ -150,6 +154,8 @@ INSERT INTO Orders
 VALUES ('Second Order for Nico', 1);
 INSERT INTO Orders
 VALUES ('First Order for Alex', 2);
+INSERT INTO Orders
+VALUES ('something', 1005);
 INSERT INTO Orders (Details)
 VALUES ('First Order for Unknown');
 
@@ -261,3 +267,191 @@ JOIN Addresses ON Customers.AddressId = Addresses.Id;
 SELECT Customers.Name, Addresses.StreetName, Addresses.StreetNumber
 FROM Customers
 JOIN Addresses ON Customers.AddressId = Addresses.Id;
+
+SELECT Id as Identifier
+FROM Customers;
+
+SELECT c.Name, a.StreetName, a.StreetNumber
+FROM Customers c
+JOIN Addresses a ON c.AddressId = a.Id;
+
+SELECT AVG(Age)
+FROM Customers;
+
+SELECT MAX(Age)
+FROM Customers;
+
+SELECT COUNT(Id)
+FROM Customers;
+
+SELECT *
+FROM Customers
+ORDER BY Name DESC;
+
+SELECT StreetName, COUNT(StreetName), City
+FROM Addresses
+GROUP BY StreetName, City;
+
+SELECT *
+FROM Addresses;
+
+SELECT StreetName, COUNT(StreetName)
+FROM Addresses
+GROUP BY StreetName, City;
+
+
+SELECT StreetName, COUNT(StreetName), City
+FROM Addresses
+GROUP BY StreetName;
+
+SELECT StreetName, COUNT(StreetName), COUNT(City)
+FROM Addresses
+GROUP BY StreetName;
+
+SELECT StreetName, COUNT(StreetName), City
+FROM Addresses
+GROUP BY StreetName, City;
+
+SELECT StreetName, COUNT(StreetName), City
+FROM Addresses
+GROUP BY StreetName, City
+HAVING StreetName = 'Eroilor';
+
+SELECT StreetName, COUNT(StreetName), City
+FROM Addresses
+GROUP BY StreetName, City
+HAVING City = 'Brasov';
+
+-- not working: is invalid in the HAVING clause because it is not contained in either an aggregate function or the GROUP BY clause.
+SELECT StreetName, COUNT(StreetName), City
+FROM Addresses
+GROUP BY StreetName, City
+HAVING StreetNumber = 53;
+
+GO
+CREATE PROCEDURE HelloWorldProcedure
+AS
+BEGIN
+    PRINT 'Hello World';
+    PRINT 'Hello World x2';
+    SELECT * FROM Customers;
+END
+GO
+
+DROP PROCEDURE HelloWorldProcedure;
+
+exec HelloWorldProcedure;
+
+GO
+CREATE PROCEDURE GetNameById(
+    @customerId INT
+)
+AS
+BEGIN
+    SELECT Name FROM Customers WHERE id = @customerId;
+END
+GO
+
+exec GetNameById 1;
+
+Go
+CREATE FUNCTION dbo.HelloWorldFunction()
+RETURNS varchar(20)
+AS
+BEGIN
+    RETURN 'Hello world'
+END;
+Go
+
+select dbo.HelloWorldFunction();
+
+Go
+CREATE FUNCTION dbo.GetNameByIdFunct(
+    @customerId INT
+)
+RETURNS varchar(20)
+AS
+BEGIN
+    DECLARE @customerName Varchar(20);
+    SET @customerName = (SELECT Name FROM Customers WHERE id = @customerId);
+    RETURN @customerName;
+END;
+Go
+
+SELECT dbo.GetNameByIdFunct(1);
+
+Go
+CREATE TRIGGER ChangeAddressWhenANewCustomerIsCreated
+ON Customers
+AFTER INSERT
+AS
+BEGIN
+    UPDATE Customers
+    SET AddressId = 1
+    WHERE Id = (SELECT MAX(Id) From Customers)
+END 
+Go
+
+INSERT INTO Customers(Name, Age)
+VALUES ('anotherCustomer', 23);
+
+SELECT *
+FROM Customers;
+
+SELECT *
+FROM Customers
+INNER JOIN Orders ON Customers.Id = Orders.CustomerId;
+
+Go
+CREATE VIEW CustomersWithOrders
+AS 
+SELECT c.Id, c.Name, o.Details
+FROM Customers c 
+INNER JOIN Orders o ON c.Id = o.CustomerId;
+Go
+
+SELECT *
+FROM CustomersWithOrders;
+
+CREATE INDEX CustomerNameIndex
+ON Customers(Name);
+
+SELECT Name
+FROM Customers
+WHERE Name = 'Nico';
+
+-- Nico, LN1, C1
+-- Alex, LN2, C2
+-- Nico, LN2, C3
+-- Nico, LN1, C4
+
+
+-- Alex, LN2, C2
+-- Nico, LN1, C1
+-- Nico, LN1, C4
+-- Nico, LN2, C3
+
+BEGIN TRANSACTION
+    UPDATE Customers
+    SET Age = 20;
+COMMIT TRANSACTION
+
+
+BEGIN TRANSACTION
+    UPDATE Customers
+    SET Age = 30;
+ROLLBACK TRANSACTION
+
+SELECT *
+FROM Customers;
+
+
+BEGIN TRANSACTION
+    UPDATE Customers
+    SET Age = 30
+    Where Id < 5;
+SAVE TRANSACTION SmallerThanFive
+    UPDATE Customers
+    SET Age = 56
+    Where Id > 5;
+ROLLBACK TRANSACTION SmallerThanFive
