@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Page title 3</title>
+       <script>
+           function changeIntitialTextToNewValue() {
+                document.getElementById('demo1').innerHTML = 'This is the new text changed from a function';
+                console.log('text changed');
+           }
+       </script>
+    </head>
+    <body>
+       <button type="button" onclick="document.getElementById('demo').innerHTML = 'This is the new text'">Click to here update initial text</button>
+       <p id="demo">This is the initial text</p>
+           
+       <script>
+           document.write('This is some text written with JavaScript');
+       </script>
+    
+       <button type="button" onclick=changeIntitialTextToNewValue()>Click to here update initial text</button>
+       <p id="demo1">ttttttt</p>
+       
+       <script>
+           const queryString = window.location.search;
+           console.log(queryString);
+           const urlParams = new URLSearchParams(queryString);
+           const fname = urlParams.get('fname')
+           console.log('the name is: '+ fname);
+           
+           p = document.createElement("p");
+           p.innerHTML = 'The name inputted earlier is ' + fname + '.';
+           document.body.appendChild(p);
+       </script>
+        
+       <h1>Cookies</h1>
+           <script>
+    			document.cookie = "name=nico;";
+    			document.cookie = "name1=nico1;";
+    			document.cookie = "name2=nico2;";
+    		</script>
+    		<script>
+    			var allCookies = document.cookie;
+               document.write("All Cookies : " + allCookies );
+    		</script>
+    
+           <br>
+           <h1>Local storage</h1>
+           <script>
+               localStorage.setItem("nameLocalStorage", "nico");
+               localStorage.nameLocalStorage1 = "nico1";
+           </script>
+           <script>
+               document.write("Local storage ");
+               document.write(localStorage.getItem("nameLocalStorage"));
+               document.write(localStorage.nameLocalStorage1)
+           </script>
+    
+           <br>
+           <h1>Session storage</h1>
+           <script>
+               sessionStorage.setItem("nameSessionStorage", "nico");
+               sessionStorage.nameSessionStorage1 = "nico1";
+           </script>
+           <script>
+               document.write("Session storage ");
+               document.write(sessionStorage.getItem("nameSessionStorage"));
+               document.write(sessionStorage.nameSessionStorage1)
+           </script>
+    
+    </body>
+</html>
