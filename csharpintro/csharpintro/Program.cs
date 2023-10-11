@@ -1,4 +1,6 @@
 ﻿using csharpintro;
+using csharpintro.Performance;
+using System.Diagnostics;
 
 Console.WriteLine("Hello, World!");
 Console.WriteLine();
@@ -1100,3 +1102,104 @@ structures.Go();
 
 Keywords keywords = new Keywords();
 keywords.Go();
+
+Console.WriteLine("------------------------PERFORMANCE------------------------");
+n = 3;
+for (int i = 0; i < n; i++)
+{
+    Console.WriteLine(i);
+}
+Console.WriteLine();
+for (int i = 0; i < n; i++)
+{
+    Console.WriteLine(i);
+    for (int j = 0; j < n; j++)
+    {
+        Console.WriteLine("\t" + j);
+    }
+}
+
+var stopwatch = new Stopwatch();
+
+stopwatch.Start();
+
+Worker.CountAscending();
+Console.WriteLine();
+Worker.CountDescending();
+Console.WriteLine();
+
+var t1 = new Thread(Worker.CountAscending);
+Console.WriteLine();
+var t2 = new Thread(Worker.CountDescending);
+stopwatch.Stop();
+
+Console.WriteLine(stopwatch.Elapsed);
+Console.WriteLine(stopwatch.ElapsedMilliseconds);
+
+stopwatch.Start();
+
+t1.Start();
+Console.WriteLine();
+t2.Start();
+
+stopwatch.Stop();
+
+Console.WriteLine(stopwatch.Elapsed);
+Console.WriteLine(stopwatch.ElapsedMilliseconds);
+
+// 1 2 3
+// 7 5 9
+// 3 9 8
+
+var random = new Random();
+var lowerBound = -500;
+var upperBound = 700;
+
+var matrixDim = 10000;
+
+matrix = new int[matrixDim, matrixDim];
+
+for (int i = 0; i < matrixDim; i++)
+{
+    for (int j = 0; j < matrixDim; j++)
+    {
+        matrix[i, j] = random.Next(lowerBound, upperBound);
+    }
+}
+
+for (int i = 0; i < matrixDim; i++)
+{
+    for (int j = 0; j < matrixDim; j++)
+    {
+        Console.Write(matrix[i, j] + " ");
+    }
+    Console.WriteLine();
+}
+
+var matrixCounter = new MatrixCounter();
+
+stopwatch.Start();
+
+var countByRow = matrixCounter.CountPositiveNumbersByRow(matrix);
+stopwatch.Stop();
+Console.WriteLine(stopwatch.Elapsed);
+stopwatch.Start();
+var countByColumn = matrixCounter.CountPositiveNumbersByColumn(matrix);
+stopwatch.Stop();
+Console.WriteLine(stopwatch.Elapsed);
+
+Console.WriteLine("row: " + countByRow + ", column: " + countByColumn);
+
+Parallel.For(0, 100, i =>
+{
+    Console.WriteLine(i);
+});
+
+Console.WriteLine();
+
+var items = Enumerable.Range(0, 100).ToList();
+Parallel.ForEach(items, (item) =>
+{
+    Console.WriteLine(item);
+    Thread.Sleep(100);
+});
